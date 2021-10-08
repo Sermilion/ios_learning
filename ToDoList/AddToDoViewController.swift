@@ -13,6 +13,7 @@ class AddToDoViewController: UIViewController {
     
     @IBOutlet weak var prioritySegment: UISegmentedControl!
     
+    // how to tell ListDataHolder ot use ToDo is its generic type?
     weak var toDoDataHolder: ListDataHolder? = nil
 
     
