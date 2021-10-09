@@ -7,16 +7,34 @@
 
 import UIKit
 
-class AddToDoViewController: UIViewController {
+class AddToDoViewController:
+    UIViewController,
+    UIImagePickerControllerDelegate,
+    UINavigationControllerDelegate
+{
     
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet weak var prioritySegment: UISegmentedControl!
     
+    @IBOutlet weak var imageView: UIImageView!
+    
+    var pickerController = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        pickerController.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func onCameraClicked(_ sender: Any) {
+        pickerController.sourceType = .camera
+        present(pickerController, animated: true, completion: nil)
+    }
+    
+    @IBAction func onPickClicked(_ sender: Any) {
+        pickerController.sourceType = .photoLibrary
+        present(pickerController, animated: true, completion: nil)
     }
     
     @IBAction func onAddClicked(_ sender: Any) {
@@ -27,9 +45,20 @@ class AddToDoViewController: UIViewController {
             if let name = nameTextField.text {
                 newToDo.name = name
             }
+            newToDo.image = imageView.image?.jpegData(compressionQuality: 1.0)
             addDelegate?.saveContext()
         }
         navigationController?.popViewController(animated: true)
+    }
+    
+    func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
+    ) {
+        if let image = info[.originalImage] as? UIImage{
+            imageView.image = image
+        }
+        pickerController.dismiss(animated: true, completion: nil)
     }
     
     /*
