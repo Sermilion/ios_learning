@@ -7,23 +7,12 @@
 
 import UIKit
 
-class ToDoTableViewController: UITableViewController, ListDataHolder {
+class ToDoTableViewController: UITableViewController {
     
-    var toDos: [ToDo] = []
+    var toDoCDs: [ToDoCD] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let toDo1 = ToDo(
-            name: "Write chapter one of iOS 14 book",
-            priority: 0
-        )
-        
-        let toDo2 = ToDo(
-            name: "Edit iOS 14 book",
-            priority: 1
-        )
-        
-        toDos = [toDo1, toDo2]
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -32,12 +21,18 @@ class ToDoTableViewController: UITableViewController, ListDataHolder {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    func addItem(item: ToDo) {
-        toDos.append(item)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getToDos()
     }
     
-    func reloadData() {
-        tableView.reloadData()
+    func getToDos(){
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            if let toDosFromCoreData = try? context.fetch(ToDoCD.fetchRequest()) {
+                toDoCDs = toDosFromCoreData
+                tableView.reloadData()
+            }
+        }
     }
     
     
@@ -45,21 +40,22 @@ class ToDoTableViewController: UITableViewController, ListDataHolder {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return toDos.count
+        return toDoCDs.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        let selectedToDo = toDos[indexPath.row]
+        let selectedToDo = toDoCDs[indexPath.row]
+        let name = selectedToDo.name ?? "empty"
         let priority = selectedToDo.priority
         
         switch priority {
         case 1:
-            cell.textLabel?.text = "❗️\(selectedToDo.name)"
+            cell.textLabel?.text = "❗️\(name)"
         case 2:
-            cell.textLabel?.text = "‼️\(selectedToDo.name)"
+            cell.textLabel?.text = "‼️\(name)"
         default:
-            cell.textLabel?.text = "\(selectedToDo.name)"
+            cell.textLabel?.text = "\(name)"
         }
         return cell
     }
@@ -99,19 +95,16 @@ class ToDoTableViewController: UITableViewController, ListDataHolder {
      */
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedToDo = toDos[indexPath.row]
+        let selectedToDo = toDoCDs[indexPath.row]
         performSegue(withIdentifier: "moveToDetails", sender: selectedToDo)
     }
     
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let addToDoViewController = segue.destination as? AddToDoViewController{
-            addToDoViewController.toDoDataHolder = self
-        }
         if let detailsToDoViewController = segue.destination as? ToDoDetailViewController {
-            if let selectedToDo = sender as? ToDo{
-                detailsToDoViewController.toDo = selectedToDo
+            if let selectedToDo = sender as? ToDoCD {
+                detailsToDoViewController.toDoCD = selectedToDo
             }
         }
     }

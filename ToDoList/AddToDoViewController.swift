@@ -13,10 +13,6 @@ class AddToDoViewController: UIViewController {
     
     @IBOutlet weak var prioritySegment: UISegmentedControl!
     
-    // how to tell ListDataHolder ot use ToDo is its generic type?
-    weak var toDoDataHolder: ListDataHolder? = nil
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,13 +20,15 @@ class AddToDoViewController: UIViewController {
     }
     
     @IBAction func onAddClicked(_ sender: Any) {
-        let toDo = ToDo()
-        toDo.priority = prioritySegment.selectedSegmentIndex
-        if let name = nameTextField.text {
-            toDo.name = name
+        let addDelegate = (UIApplication.shared.delegate as? AppDelegate)
+        if let context = addDelegate?.persistentContainer.viewContext {
+            let newToDo = ToDoCD(context: context)
+            newToDo.priority = Int32(prioritySegment.selectedSegmentIndex)
+            if let name = nameTextField.text {
+                newToDo.name = name
+            }
+            addDelegate?.saveContext()
         }
-        toDoDataHolder?.addItem(item: toDo)
-        toDoDataHolder?.reloadData()
         navigationController?.popViewController(animated: true)
     }
     

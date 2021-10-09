@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="cxK-qb-N2j">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="todocell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="todocell" id="cxK-qb-N2j">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cxK-qb-N2j" id="0qG-yv-Ec5">
@@ -142,7 +142,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jH-d7-jMe">
                                 <rect key="frame" x="100" y="249" width="214" height="31"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Done"/>
                                 <connections>
                                     <action selector="onDoneClicked:" destination="5oF-Xw-anE" eventType="touchUpInside" id="zwg-lf-fRA"/>
                                 </connections>
@@ -151,7 +151,7 @@
                         <viewLayoutGuide key="safeArea" id="NO7-gJ-eAZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="NO7-gJ-eAZ" firstAttribute="trailing" secondItem="3jH-d7-jMe" secondAttribute="trailing" constant="100" id="3K8-ZP-MqR"/>
+                            <constraint firstItem="NO7-gJ-eAZ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3jH-d7-jMe" secondAttribute="trailing" constant="100" id="3K8-ZP-MqR"/>
                             <constraint firstItem="J8N-KM-Z13" firstAttribute="top" secondItem="NO7-gJ-eAZ" secondAttribute="top" constant="80" id="Kpj-dl-hGw"/>
                             <constraint firstItem="3jH-d7-jMe" firstAttribute="top" secondItem="J8N-KM-Z13" secondAttribute="bottom" constant="60" id="Kvw-yq-oum"/>
                             <constraint firstItem="3jH-d7-jMe" firstAttribute="leading" secondItem="NO7-gJ-eAZ" secondAttribute="leading" constant="100" id="OsO-lg-4Z7"/>
@@ -161,6 +161,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YtC-ZZ-hOH"/>
                     <connections>
+                        <outlet property="doneButton" destination="3jH-d7-jMe" id="CQZ-AU-sEK"/>
                         <outlet property="toDoLabel" destination="J8N-KM-Z13" id="1xX-mU-CfE"/>
                     </connections>
                 </viewController>
