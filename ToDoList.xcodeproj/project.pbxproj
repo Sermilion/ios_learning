@@ -17,6 +17,7 @@
 		3924CE642710254B00DD0455 /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924CE632710254B00DD0455 /* ToDoTableViewController.swift */; };
 		3924CE6627102D7300DD0455 /* AddToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924CE6527102D7300DD0455 /* AddToDoViewController.swift */; };
 		3927475B2710637500888991 /* ToDoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3927475A2710637500888991 /* ToDoDetailViewController.swift */; };
+		396A018B2716CC04009EBFA7 /* CryptoPriceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396A018A2716CC04009EBFA7 /* CryptoPriceVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		3924CE632710254B00DD0455 /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
 		3924CE6527102D7300DD0455 /* AddToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoViewController.swift; sourceTree = "<group>"; };
 		3927475A2710637500888991 /* ToDoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoDetailViewController.swift; sourceTree = "<group>"; };
+		396A018A2716CC04009EBFA7 /* CryptoPriceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoPriceVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		390A3016271436410029C81D /* todo */ = {
+			isa = PBXGroup;
+			children = (
+				3924CE632710254B00DD0455 /* ToDoTableViewController.swift */,
+				3924CE6527102D7300DD0455 /* AddToDoViewController.swift */,
+				3927475A2710637500888991 /* ToDoDetailViewController.swift */,
+				3924CE61271024C700DD0455 /* ToDo.swift */,
+			);
+			path = todo;
+			sourceTree = "<group>";
+		};
 		3924CE3E271023F500DD0455 = {
 			isa = PBXGroup;
 			children = (
@@ -64,12 +77,10 @@
 		3924CE49271023F500DD0455 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				396A01892716C748009EBFA7 /* crypto */,
+				390A3016271436410029C81D /* todo */,
 				3924CE4A271023F500DD0455 /* AppDelegate.swift */,
 				3924CE4C271023F500DD0455 /* SceneDelegate.swift */,
-				3924CE632710254B00DD0455 /* ToDoTableViewController.swift */,
-				3924CE6527102D7300DD0455 /* AddToDoViewController.swift */,
-				3927475A2710637500888991 /* ToDoDetailViewController.swift */,
-				3924CE61271024C700DD0455 /* ToDo.swift */,
 				3924CE50271023F500DD0455 /* Main.storyboard */,
 				3924CE56271023F700DD0455 /* Assets.xcassets */,
 				3924CE58271023F700DD0455 /* LaunchScreen.storyboard */,
@@ -77,6 +88,14 @@
 				3924CE53271023F500DD0455 /* ToDoList.xcdatamodeld */,
 			);
 			path = ToDoList;
+			sourceTree = "<group>";
+		};
+		396A01892716C748009EBFA7 /* crypto */ = {
+			isa = PBXGroup;
+			children = (
+				396A018A2716CC04009EBFA7 /* CryptoPriceVC.swift */,
+			);
+			path = crypto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +172,7 @@
 				3924CE4B271023F500DD0455 /* AppDelegate.swift in Sources */,
 				3927475B2710637500888991 /* ToDoDetailViewController.swift in Sources */,
 				3924CE4D271023F500DD0455 /* SceneDelegate.swift in Sources */,
+				396A018B2716CC04009EBFA7 /* CryptoPriceVC.swift in Sources */,
 				3924CE55271023F500DD0455 /* ToDoList.xcdatamodeld in Sources */,
 				3924CE62271024C700DD0455 /* ToDo.swift in Sources */,
 				3924CE6627102D7300DD0455 /* AddToDoViewController.swift in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p0I-34-e8E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WPM-YQ-NIQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -133,6 +133,47 @@
             </objects>
             <point key="canvasLocation" x="1126" y="63"/>
         </scene>
+        <!--Cryptocurrecny Price Tracking-->
+        <scene sceneID="oJE-JB-y9f">
+            <objects>
+                <viewController id="4W8-yv-1wf" customClass="CryptoPriceVC" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cgC-ho-HDc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3R5-R0-gsD">
+                                <rect key="frame" x="10" y="88" width="394" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="r68-3i-uZl"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7Q-6s-vhV">
+                                <rect key="frame" x="197" y="260" width="20" height="39.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Tjw-H9-69s"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3R5-R0-gsD" firstAttribute="centerX" secondItem="L7Q-6s-vhV" secondAttribute="centerX" id="1CG-R7-hdV"/>
+                            <constraint firstItem="L7Q-6s-vhV" firstAttribute="top" secondItem="3R5-R0-gsD" secondAttribute="bottom" constant="10" id="RJF-oh-V7H"/>
+                            <constraint firstItem="Tjw-H9-69s" firstAttribute="trailing" secondItem="3R5-R0-gsD" secondAttribute="trailing" constant="10" id="RgQ-GO-fzJ"/>
+                            <constraint firstItem="3R5-R0-gsD" firstAttribute="top" secondItem="Tjw-H9-69s" secondAttribute="top" id="SzB-tn-pbE"/>
+                            <constraint firstItem="3R5-R0-gsD" firstAttribute="leading" secondItem="Tjw-H9-69s" secondAttribute="leading" constant="10" id="yrZ-gp-5S6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cryptocurrecny Price Tracking" id="xr6-Ok-Ryq"/>
+                    <connections>
+                        <outlet property="cryptoPicker" destination="3R5-R0-gsD" id="6xU-Hr-HdQ"/>
+                        <outlet property="cryptoPrice" destination="L7Q-6s-vhV" id="W0d-QZ-gSs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P2W-rv-nLB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="269.56521739130437" y="-711.16071428571422"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="RXq-lf-CtC">
             <objects>
@@ -192,6 +233,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lL-eY-Hob" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="257.97101449275362" y="787.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="W8y-XC-joB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WPM-YQ-NIQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5OO-Pg-8cL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4W8-yv-1wf" kind="relationship" relationship="rootViewController" id="6Dp-cX-Jsn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ip-rs-Im4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-639.13043478260875" y="-711.16071428571422"/>
         </scene>
     </scenes>
     <resources>
