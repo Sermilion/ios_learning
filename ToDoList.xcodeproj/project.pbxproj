@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		391168FA271D970200231623 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391168F9271D970200231623 /* ColorCollectionViewCell.swift */; };
 		391168FD271EAB5900231623 /* GiftCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391168FC271EAB5900231623 /* GiftCardModel.swift */; };
 		391168FF271EADD300231623 /* GiftCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391168FE271EADD300231623 /* GiftCardCollectionViewCell.swift */; };
 		3924CE4B271023F500DD0455 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924CE4A271023F500DD0455 /* AppDelegate.swift */; };
@@ -24,10 +23,10 @@
 		396A018E2716FB79009EBFA7 /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396A018D2716FB79009EBFA7 /* GiftViewController.swift */; };
 		39E570DF271EB09C00D76516 /* MockGiftCards.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39E570DD271EB09C00D76516 /* MockGiftCards.xcassets */; };
 		39E570E0271EB09C00D76516 /* GiftCardFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E570DE271EB09C00D76516 /* GiftCardFunctions.swift */; };
+		39E570E2271F34E800D76516 /* SmallGiftCardCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E570E1271F34E800D76516 /* SmallGiftCardCollectionViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		391168F9271D970200231623 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		391168FC271EAB5900231623 /* GiftCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardModel.swift; sourceTree = "<group>"; };
 		391168FE271EADD300231623 /* GiftCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		3924CE47271023F500DD0455 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +45,7 @@
 		396A018D2716FB79009EBFA7 /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
 		39E570DD271EB09C00D76516 /* MockGiftCards.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MockGiftCards.xcassets; sourceTree = "<group>"; };
 		39E570DE271EB09C00D76516 /* GiftCardFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftCardFunctions.swift; sourceTree = "<group>"; };
+		39E570E1271F34E800D76516 /* SmallGiftCardCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallGiftCardCollectionViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +126,8 @@
 			children = (
 				391168FB271EAB4400231623 /* model */,
 				396A018D2716FB79009EBFA7 /* GiftViewController.swift */,
-				391168F9271D970200231623 /* ColorCollectionViewCell.swift */,
 				391168FE271EADD300231623 /* GiftCardCollectionViewCell.swift */,
+				39E570E1271F34E800D76516 /* SmallGiftCardCollectionViewDataSource.swift */,
 			);
 			path = giftcard;
 			sourceTree = "<group>";
@@ -215,7 +215,7 @@
 				3924CE62271024C700DD0455 /* ToDo.swift in Sources */,
 				391168FF271EADD300231623 /* GiftCardCollectionViewCell.swift in Sources */,
 				3924CE6627102D7300DD0455 /* AddToDoViewController.swift in Sources */,
-				391168FA271D970200231623 /* ColorCollectionViewCell.swift in Sources */,
+				39E570E2271F34E800D76516 /* SmallGiftCardCollectionViewDataSource.swift in Sources */,
 				3924CE642710254B00DD0455 /* ToDoTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

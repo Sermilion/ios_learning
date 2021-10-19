@@ -11,6 +11,14 @@ class GiftViewController: UIViewController {
     
     @IBOutlet weak var seasonalCollectionView: UICollectionView!
     
+    @IBOutlet weak var thankYouCollectionView: UICollectionView!
+    
+    @IBOutlet weak var seasonalHeightConstraint: NSLayoutConstraint!
+
+    @IBOutlet weak var thankYouHeigthConstraint: NSLayoutConstraint!
+    
+    private var thankYouDataSource: SmallGiftCardCollectionViewDataSource?
+    
     private var seasonalGiftCards = [GiftCardModel]()
     //    {
     //        didSet {
@@ -29,6 +37,26 @@ class GiftViewController: UIViewController {
             self.seasonalGiftCards = cards
             self.seasonalCollectionView.reloadData()
         }
+        
+        GiftCardFunctions.getThankYouGiftCards { [weak self] (cards) in
+            guard let self = self else { return }
+            self.thankYouDataSource = SmallGiftCardCollectionViewDataSource(giftCards: cards)
+            self.thankYouCollectionView.delegate = self.thankYouDataSource
+            self.thankYouCollectionView.dataSource = self.thankYouDataSource
+            self.thankYouCollectionView.reloadData()
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setHeightOfCollectionViews()
+    }
+    
+    func setHeightOfCollectionViews() {
+        let width = seasonalCollectionView.bounds.width - 30
+        let height = width / 1.5
+        seasonalHeightConstraint.constant = height
+        thankYouHeigthConstraint.constant = height / 2
     }
     
 }
@@ -56,26 +84,8 @@ extension GiftViewController: UICollectionViewDataSource, UICollectionViewDelega
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        let columns: CGFloat = 2
-        let collectionViewWidtgh = collectionView.bounds.width
-        let flowLayout  = collectionViewLayout as! UICollectionViewFlowLayout
-        let itemSpacing = flowLayout.minimumInteritemSpacing * (columns - 1)
-        let sectionInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right
-        let adjustedWidth = collectionViewWidtgh - itemSpacing - sectionInsets
-        let width: CGFloat = floor(adjustedWidth / columns)
+        let width = collectionView.bounds.width - 50
         let height = width / 1.5
         return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(
-        _ collectionView: UICollectionView,
-        viewForSupplementaryElementOfKind kind: String,
-        at indexPath: IndexPath
-    ) -> UICollectionReusableView {
-        let view = collectionView.dequeueReusableSupplementaryView(
-            ofKind: kind,
-            withReuseIdentifier: "sectionHeader", for: indexPath
-        )
-        return view
     }
 }

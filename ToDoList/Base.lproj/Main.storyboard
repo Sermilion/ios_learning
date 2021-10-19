@@ -143,24 +143,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lVr-oe-K72">
-                                <rect key="frame" x="20" y="88" width="374" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wjE-0x-ZtL">
+                                <rect key="frame" x="20" y="147" width="374" height="201"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="201" id="Orj-iD-dLI"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="10" id="wjE-0x-ZtL">
                                     <size key="itemSize" width="200" height="200"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="10"/>
+                                    <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GiftCardCell" id="KhU-Lg-eRv" customClass="GiftCardCollectionViewCell" customModule="ToDoList" customModuleProvider="target">
-                                        <rect key="frame" x="87" y="50" width="200" height="200"/>
+                                        <rect key="frame" x="5" y="4.5" width="200" height="192"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZpL-St-aIA">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="192"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7M2-l6-TTD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="192"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -171,44 +173,88 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                                        <size key="customSize" width="200" height="200"/>
+                                        <size key="customSize" width="200" height="192"/>
                                         <connections>
                                             <outlet property="giftCardImageView" destination="7M2-l6-TTD" id="Dxz-S8-S5s"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="sectionHeader" id="Kbd-ZJ-hvm">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seasonal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bd-Bb-jyT">
-                                            <rect key="frame" x="8" y="14" width="358" height="22"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="6bd-Bb-jyT" secondAttribute="bottom" constant="6" id="OzF-w9-Pyp"/>
-                                        <constraint firstItem="6bd-Bb-jyT" firstAttribute="trailing" secondItem="Kbd-ZJ-hvm" secondAttribute="trailingMargin" id="cD7-w8-4pP"/>
-                                        <constraint firstItem="6bd-Bb-jyT" firstAttribute="leading" secondItem="Kbd-ZJ-hvm" secondAttribute="leadingMargin" id="iBf-mt-fdC"/>
-                                        <constraint firstItem="6bd-Bb-jyT" firstAttribute="top" secondItem="Kbd-ZJ-hvm" secondAttribute="topMargin" constant="6" id="jUs-5E-kAC"/>
-                                    </constraints>
-                                </collectionReusableView>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seasonal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfM-8h-H6B">
+                                <rect key="frame" x="20" y="108" width="374" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seasonal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2T-CH-tux">
+                                <rect key="frame" x="20" y="358" width="374" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qls-bJ-NdI">
+                                <rect key="frame" x="20" y="397" width="374" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="UCI-Xc-XNY"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="10" id="uhM-gv-kMh">
+                                    <size key="itemSize" width="200" height="146"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GiftCardCell" id="HsE-Rf-zmf" customClass="GiftCardCollectionViewCell" customModule="ToDoList" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="-23" width="200" height="146"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="EZL-kJ-J1V">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="146"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1qO-kD-dxG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="146"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="1qO-kD-dxG" secondAttribute="trailing" id="4BR-hG-S47"/>
+                                                <constraint firstAttribute="bottom" secondItem="1qO-kD-dxG" secondAttribute="bottom" id="7U2-sp-Kdx"/>
+                                                <constraint firstItem="1qO-kD-dxG" firstAttribute="leading" secondItem="EZL-kJ-J1V" secondAttribute="leading" id="m9U-oC-hFJ"/>
+                                                <constraint firstItem="1qO-kD-dxG" firstAttribute="top" secondItem="EZL-kJ-J1V" secondAttribute="top" id="orO-Ik-jRe"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                        <size key="customSize" width="200" height="146"/>
+                                        <connections>
+                                            <outlet property="giftCardImageView" destination="1qO-kD-dxG" id="jpX-AZ-7xI"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MKQ-u6-BLc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="lVr-oe-K72" firstAttribute="top" secondItem="MKQ-u6-BLc" secondAttribute="top" id="1Sh-Vl-scS"/>
-                            <constraint firstItem="lVr-oe-K72" firstAttribute="bottom" secondItem="MKQ-u6-BLc" secondAttribute="bottom" id="95c-eR-qVm"/>
+                            <constraint firstItem="I2T-CH-tux" firstAttribute="top" secondItem="lVr-oe-K72" secondAttribute="bottom" constant="10" id="0kf-9y-5ON"/>
+                            <constraint firstItem="zfM-8h-H6B" firstAttribute="top" secondItem="MKQ-u6-BLc" secondAttribute="top" constant="20" id="5WX-9D-t6y"/>
+                            <constraint firstItem="lVr-oe-K72" firstAttribute="top" secondItem="zfM-8h-H6B" secondAttribute="bottom" constant="10" id="AM8-9Q-9eS"/>
+                            <constraint firstItem="I2T-CH-tux" firstAttribute="leading" secondItem="MKQ-u6-BLc" secondAttribute="leading" constant="20" id="BGW-4V-B1Z"/>
+                            <constraint firstItem="zfM-8h-H6B" firstAttribute="trailing" secondItem="lVr-oe-K72" secondAttribute="trailing" id="JM4-7A-JAq"/>
+                            <constraint firstItem="zfM-8h-H6B" firstAttribute="leading" secondItem="lVr-oe-K72" secondAttribute="leading" id="QBs-jf-qLX"/>
+                            <constraint firstItem="MKQ-u6-BLc" firstAttribute="trailing" secondItem="I2T-CH-tux" secondAttribute="trailing" constant="20" id="RaE-pf-5NW"/>
+                            <constraint firstItem="Qls-bJ-NdI" firstAttribute="top" secondItem="I2T-CH-tux" secondAttribute="bottom" constant="10" id="XTE-31-asQ"/>
                             <constraint firstItem="lVr-oe-K72" firstAttribute="leading" secondItem="MKQ-u6-BLc" secondAttribute="leading" multiplier="0.4" constant="20" id="jE8-2g-o0S"/>
+                            <constraint firstItem="Qls-bJ-NdI" firstAttribute="leading" secondItem="MKQ-u6-BLc" secondAttribute="leading" constant="20" id="n3Q-ug-fbc"/>
+                            <constraint firstItem="MKQ-u6-BLc" firstAttribute="trailing" secondItem="Qls-bJ-NdI" secondAttribute="trailing" constant="20" id="pSE-tZ-DAS"/>
                             <constraint firstItem="MKQ-u6-BLc" firstAttribute="trailing" secondItem="lVr-oe-K72" secondAttribute="trailing" constant="20" id="sfU-zS-A62"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Gift Cards" id="scD-YU-i9H"/>
                     <connections>
                         <outlet property="seasonalCollectionView" destination="lVr-oe-K72" id="zqi-D8-LlM"/>
+                        <outlet property="seasonalHeightConstraint" destination="Orj-iD-dLI" id="add-8f-Jzx"/>
+                        <outlet property="thankYouCollectionView" destination="Qls-bJ-NdI" id="Jq1-av-YlJ"/>
+                        <outlet property="thankYouHeigthConstraint" destination="UCI-Xc-XNY" id="ieL-zS-ivn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="25v-J3-GgF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
