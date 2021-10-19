@@ -11,74 +11,43 @@ class GiftViewController: UIViewController {
     
     @IBOutlet weak var seasonalCollectionView: UICollectionView!
     
-    private let colorData = [
-        [UIColor.purple,
-         UIColor.red,
-         UIColor.green,
-         UIColor.yellow,
-         UIColor.orange],
-        [UIColor.purple,
-         UIColor.red,
-         UIColor.green,
-         UIColor.yellow,
-         UIColor.orange],
-        [UIColor.purple,
-         UIColor.red,
-         UIColor.green,
-         UIColor.yellow,
-         UIColor.orange],
-        [UIColor.purple,
-         UIColor.red,
-         UIColor.green,
-         UIColor.yellow,
-         UIColor.orange],
-        [UIColor.purple,
-         UIColor.red,
-         UIColor.green,
-         UIColor.yellow,
-         UIColor.orange],
-        [UIColor.purple,
-         UIColor.red,
-         UIColor.green,
-         UIColor.yellow,
-         UIColor.orange],
-        [UIColor.purple,
-         UIColor.red,
-         UIColor.green,
-         UIColor.yellow,
-         UIColor.orange],
-        [UIColor.purple,
-         UIColor.red,
-         UIColor.green,
-         UIColor.yellow,
-         UIColor.orange
-        ]
-    ]
+    private var seasonalGiftCards = [GiftCardModel]()
+    //    {
+    //        didSet {
+    //            seasonalCollectionView.reloadData()
+    //        }
+    //    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         seasonalCollectionView.dataSource = self
         seasonalCollectionView.delegate = self
+        GiftCardFunctions.getSeasonalGiftCards { [weak self] (cards) in
+            guard let self = self else { return }
+            self.seasonalGiftCards = cards
+            self.seasonalCollectionView.reloadData()
+        }
     }
     
 }
 
 extension GiftViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(
-        _ collectionView: UICollectionView,
-        numberOfItemsInSection section: Int
-    ) -> Int {
-        return colorData[section].count
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return seasonalGiftCards.count
     }
     
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GiftCardCell", for: indexPath) as! ColorCollectionViewCell
-        let backgroundColor = colorData[indexPath.section][indexPath.item]
-        cell.setup(backgroundColor: backgroundColor, cellNumber: indexPath.item)
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "GiftCardCell",
+            for: indexPath
+        ) as! GiftCardCollectionViewCell
+        cell.setup(model: seasonalGiftCards[indexPath.item])
         return cell
     }
     
@@ -90,10 +59,12 @@ extension GiftViewController: UICollectionViewDataSource, UICollectionViewDelega
         let columns: CGFloat = 2
         let collectionViewWidtgh = collectionView.bounds.width
         let flowLayout  = collectionViewLayout as! UICollectionViewFlowLayout
-        let itemSpacing = flowLayout.minimumInteritemSpacing
-        let adjustedWidth = collectionViewWidtgh - itemSpacing
+        let itemSpacing = flowLayout.minimumInteritemSpacing * (columns - 1)
+        let sectionInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right
+        let adjustedWidth = collectionViewWidtgh - itemSpacing - sectionInsets
         let width: CGFloat = floor(adjustedWidth / columns)
-        return CGSize(width: width, height: 100)
+        let height = width / 1.5
+        return CGSize(width: width, height: height)
     }
     
     func collectionView(
@@ -101,24 +72,10 @@ extension GiftViewController: UICollectionViewDataSource, UICollectionViewDelega
         viewForSupplementaryElementOfKind kind: String,
         at indexPath: IndexPath
     ) -> UICollectionReusableView {
-        if kind == UICollectionView.elementKindSectionHeader {
-            let view = collectionView.dequeueReusableSupplementaryView(
-                ofKind: kind,
-                withReuseIdentifier: "sectionHeader", for: indexPath
-            ) as! HeaderCollectionReusableView
-            view.setup(count: colorData[indexPath.section].count)
-            return view
-        } else {
-            let view = collectionView.dequeueReusableSupplementaryView(
-                ofKind: kind,
-                withReuseIdentifier: "sectionFooter", for: indexPath
-            )
-            view.backgroundColor = UIColor.purple
-            return view
-        }
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return colorData.count
+        let view = collectionView.dequeueReusableSupplementaryView(
+            ofKind: kind,
+            withReuseIdentifier: "sectionHeader", for: indexPath
+        )
+        return view
     }
 }

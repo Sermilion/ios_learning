@@ -148,45 +148,42 @@
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wjE-0x-ZtL">
                                     <size key="itemSize" width="200" height="200"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
-                                    <size key="footerReferenceSize" width="50" height="15"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GiftCardCell" id="KhU-Lg-eRv" customClass="ColorCollectionViewCell" customModule="ToDoList" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GiftCardCell" id="KhU-Lg-eRv" customClass="GiftCardCollectionViewCell" customModule="ToDoList" customModuleProvider="target">
                                         <rect key="frame" x="87" y="50" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZpL-St-aIA">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GA4-5t-cHO">
-                                                    <rect key="frame" x="8" y="8" width="184" height="184"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="52"/>
-                                                    <color key="textColor" systemColor="systemBackgroundColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7M2-l6-TTD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="GA4-5t-cHO" firstAttribute="leading" secondItem="ZpL-St-aIA" secondAttribute="leadingMargin" id="Ogq-Er-jub"/>
-                                                <constraint firstItem="GA4-5t-cHO" firstAttribute="top" secondItem="ZpL-St-aIA" secondAttribute="topMargin" id="hkL-rk-p1k"/>
-                                                <constraint firstItem="GA4-5t-cHO" firstAttribute="bottom" secondItem="ZpL-St-aIA" secondAttribute="bottomMargin" id="lY7-nk-zRo"/>
-                                                <constraint firstItem="GA4-5t-cHO" firstAttribute="trailing" secondItem="ZpL-St-aIA" secondAttribute="trailingMargin" id="n8W-gW-s3u"/>
+                                                <constraint firstAttribute="trailing" secondItem="7M2-l6-TTD" secondAttribute="trailing" id="FO0-in-Che"/>
+                                                <constraint firstItem="7M2-l6-TTD" firstAttribute="leading" secondItem="ZpL-St-aIA" secondAttribute="leading" id="UmI-DK-U32"/>
+                                                <constraint firstAttribute="bottom" secondItem="7M2-l6-TTD" secondAttribute="bottom" id="cFU-q4-hge"/>
+                                                <constraint firstItem="7M2-l6-TTD" firstAttribute="top" secondItem="ZpL-St-aIA" secondAttribute="top" id="cSD-AQ-BfY"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                         <size key="customSize" width="200" height="200"/>
                                         <connections>
-                                            <outlet property="numberLabel" destination="GA4-5t-cHO" id="asK-Pj-ul2"/>
+                                            <outlet property="giftCardImageView" destination="7M2-l6-TTD" id="Dxz-S8-S5s"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="sectionHeader" id="Kbd-ZJ-hvm" customClass="HeaderCollectionReusableView" customModule="ToDoList" customModuleProvider="target">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="sectionHeader" id="Kbd-ZJ-hvm">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Colors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bd-Bb-jyT">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seasonal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bd-Bb-jyT">
                                             <rect key="frame" x="8" y="14" width="358" height="22"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -197,13 +194,6 @@
                                         <constraint firstItem="6bd-Bb-jyT" firstAttribute="leading" secondItem="Kbd-ZJ-hvm" secondAttribute="leadingMargin" id="iBf-mt-fdC"/>
                                         <constraint firstItem="6bd-Bb-jyT" firstAttribute="top" secondItem="Kbd-ZJ-hvm" secondAttribute="topMargin" constant="6" id="jUs-5E-kAC"/>
                                     </constraints>
-                                    <connections>
-                                        <outlet property="headerLabel" destination="6bd-Bb-jyT" id="pF0-u3-U5g"/>
-                                    </connections>
-                                </collectionReusableView>
-                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="sectionFooter" id="R9f-lE-TcI">
-                                    <rect key="frame" x="0.0" y="260" width="374" height="15"/>
-                                    <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>
@@ -212,8 +202,8 @@
                         <constraints>
                             <constraint firstItem="lVr-oe-K72" firstAttribute="top" secondItem="MKQ-u6-BLc" secondAttribute="top" id="1Sh-Vl-scS"/>
                             <constraint firstItem="lVr-oe-K72" firstAttribute="bottom" secondItem="MKQ-u6-BLc" secondAttribute="bottom" id="95c-eR-qVm"/>
-                            <constraint firstItem="MKQ-u6-BLc" firstAttribute="trailing" secondItem="lVr-oe-K72" secondAttribute="trailing" constant="20" id="WBk-1c-3wZ"/>
                             <constraint firstItem="lVr-oe-K72" firstAttribute="leading" secondItem="MKQ-u6-BLc" secondAttribute="leading" multiplier="0.4" constant="20" id="jE8-2g-o0S"/>
+                            <constraint firstItem="MKQ-u6-BLc" firstAttribute="trailing" secondItem="lVr-oe-K72" secondAttribute="trailing" constant="20" id="sfU-zS-A62"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Gift Cards" id="scD-YU-i9H"/>
